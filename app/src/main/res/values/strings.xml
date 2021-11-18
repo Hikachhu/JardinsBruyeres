@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Gauche</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="adddata">AddData</string>
+    <string name="un_super_projet">Un super projet</string>
+    <string name="type_de_capteur">Type de capteur</string>
+    <string name="selectionner">Ajouter</string>
+    <string name="nom_capteur">Nom capteur</string>
+    <string name="ajouter">Ajouter</string>
+    <string name="unit_capteur">Unité capteur</string>
+    <string name="a_propos">A propos</string>
+    <string name="donn_es">Données</string>
+    <string name="composants">Composants</string>
+    <string name="ajout_donn_es">Ajout données</string>
+    <string name="types_composants">Types composants</string>
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.gauche.ui.home.HomeFragment"
+        android:label="Types composants"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_addData"
+        android:name="com.example.gauche.ui.slideshow.AddDataFragment"
+        android:label="Ajout données"
+        tools:layout="@layout/fragment_adddata" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.gauche.ui.gallery.GalleryFragment"
+        android:label="Composants"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_apropos"
+        android:name="com.example.gauche.ui.aPropos.AProposFragment"
+        android:label="A propos"
+        tools:layout="@layout/fragment_apropos" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.example.gauche.ui.slideshow.SlideshowFragment"
+        android:label="Données"
+        tools:layout="@layout/fragment_slideshow" />
+</navigation>
