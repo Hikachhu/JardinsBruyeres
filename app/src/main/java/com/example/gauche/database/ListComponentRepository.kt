@@ -9,6 +9,7 @@ import com.example.gauche.database.listComponent.ListComponentDao
 
 class ListComponentRepository(private val wordDao: ListComponentDao) {
 
+    val size: LiveData<Int> = wordDao.size
     val allWords: LiveData<List<ListComponent>> = wordDao.alphabetizedWords
     val allWordsContent: LiveData<List<String>> = wordDao.alphabetizedWordsContent
     @WorkerThread

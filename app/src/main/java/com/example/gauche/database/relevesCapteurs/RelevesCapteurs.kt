@@ -4,9 +4,8 @@ import androidx.room.PrimaryKey
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
+import androidx.room.ForeignKey.NO_ACTION
 import com.example.gauche.database.component.Component
-import com.example.gauche.database.listComponent.ListComponent
-import java.sql.Timestamp
 
 /*
  * Copyright (C) 2017 Google Inc.
@@ -38,12 +37,17 @@ import java.sql.Timestamp
         entity = Component::class,
         parentColumns = ["ID"],
         childColumns = ["IdCapteur"],
-        onDelete = ForeignKey.CASCADE
+
+        onDelete= NO_ACTION
     )]
 )
 class RelevesCapteurs(
-    @field:ColumnInfo(name = "ID",index = true) @field:PrimaryKey var ID: Int,
+    @field:ColumnInfo(name = "ID",index = true) @field:PrimaryKey(autoGenerate = true) var ID: Int?,
     @field:ColumnInfo(name = "IdCapteur",index = true) var IdCapteur: Int,
     @field:ColumnInfo(name = "dateAjout",index = true) var dateAjout: Long,
-    @field:ColumnInfo(name = "valeur",index = true)  var valeur: Int
+    @field:ColumnInfo(name = "valeur",index = true) var valeur: Int
 )
+{
+    constructor(IdCapteur: Int,dateAjout:Long,valeur:Int):this(null,
+        IdCapteur,dateAjout,valeur)
+}

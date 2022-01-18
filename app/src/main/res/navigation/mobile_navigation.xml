@@ -7,18 +7,18 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.gauche.ui.home.HomeFragment"
+        android:name="com.example.gauche.ui.typecomposant.TypeComposantsFragment"
         android:label="Types composants"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/nav_addData"
-        android:name="com.example.gauche.ui.slideshow.AddDataFragment"
+        android:name="com.example.gauche.ui.releves.AddDataFragment"
         android:label="Ajout données"
         tools:layout="@layout/fragment_adddata" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.gauche.ui.gallery.GalleryFragment"
+        android:name="com.example.gauche.ui.composant.ComposantFragment"
         android:label="Composants"
         tools:layout="@layout/fragment_gallery" />
 
@@ -30,7 +30,7 @@
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.gauche.ui.slideshow.SlideshowFragment"
+        android:name="com.example.gauche.ui.releves.RelevesFragment"
         android:label="Données"
         tools:layout="@layout/fragment_slideshow" />
 </navigation>

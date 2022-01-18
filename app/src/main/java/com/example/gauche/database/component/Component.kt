@@ -4,6 +4,7 @@ import androidx.room.PrimaryKey
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
+import androidx.room.ForeignKey.CASCADE
 import com.example.gauche.database.listComponent.ListComponent
 
 @Entity(
@@ -12,7 +13,7 @@ import com.example.gauche.database.listComponent.ListComponent
         entity = ListComponent::class,
         parentColumns = ["typComponent"],
         childColumns = ["type"],
-        onDelete = ForeignKey.NO_ACTION
+        onDelete=ForeignKey.RESTRICT
     )],
 )
 class Component(

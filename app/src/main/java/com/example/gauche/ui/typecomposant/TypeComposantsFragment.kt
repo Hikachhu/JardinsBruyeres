@@ -1,4 +1,4 @@
-package com.example.gauche.ui.home
+package com.example.gauche.ui.typecomposant
 
 import android.os.Bundle
 import android.util.Log
@@ -15,8 +15,9 @@ import com.example.gauche.R
 import com.example.gauche.database.listComponent.ListComponentAdapter
 import com.example.gauche.database.listComponent.ListComponentViewModel
 import com.example.gauche.databinding.FragmentHomeBinding
+import java.lang.Thread.sleep
 
-class HomeFragment : Fragment() {
+class TypeComposantsFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private var mComponentViewModel: ListComponentViewModel? = null
@@ -31,9 +32,14 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
         val recyclerView: RecyclerView = root.findViewById(R.id.recycleur_view_ListCompenent)
         mComponentViewModel = ViewModelProvider(this)[ListComponentViewModel::class.java]
-        for (i in 1..5) {
-            mComponentViewModel?.insert(ListComponent(i, "test $i","°C"))
-        }
+        mComponentViewModel?.allWords?.observe(viewLifecycleOwner, { words ->
+            if (words.size<2){
+                for (i in 1..5) {
+                    mComponentViewModel?.insert(ListComponent( "test $i", "°C"))
+                }
+            }
+        })
+
         val adapter = activity?.let { ListComponentAdapter(it.application) }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)

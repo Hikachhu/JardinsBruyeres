@@ -1,4 +1,4 @@
-package com.example.gauche.ui.gallery
+package com.example.gauche.ui.composant
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -15,8 +15,10 @@ import com.example.gauche.database.component.Component
 import com.example.gauche.database.component.ComponentAdapter
 import com.example.gauche.database.component.ComponentViewModel
 import com.example.gauche.databinding.FragmentGalleryBinding
+import java.text.SimpleDateFormat
+import java.util.*
 
-class GalleryFragment : Fragment() {
+class ComposantFragment : Fragment() {
 
     private var _binding: FragmentGalleryBinding? = null
 
@@ -35,21 +37,15 @@ class GalleryFragment : Fragment() {
         _binding = FragmentGalleryBinding.inflate(inflater, container, false)
         val root: View = binding.root
         val recyclerView: RecyclerView = root.findViewById(R.id.recycleur_view_Component)
-        var mComponentViewModel = ViewModelProvider(this)[ComponentViewModel::class.java]
-        Log.e("Recherche","1")
+        val mComponentViewModel = ViewModelProvider(this)[ComponentViewModel::class.java]
         for (i in 1..5) {
-            mComponentViewModel.insert(Component(i,1, "Composant $i", System.currentTimeMillis(),1))
+            mComponentViewModel.insert(Component( i,i,"Composant $i", System.currentTimeMillis(),1))
         }
-
-        Log.e("Recherche","2")
         val adapter = activity?.let { ComponentAdapter(it.application) }
         recyclerView.adapter = adapter
-        Log.e("Recherche","3")
         recyclerView.layoutManager= LinearLayoutManager(context)
-        Log.e("Recherche","4")
         mComponentViewModel.allWords.observe(viewLifecycleOwner, { words ->
             words?.let {
-                Log.e("Verif",it.toString())
                 adapter?.setWords(it)
             }
         })
@@ -61,5 +57,15 @@ class GalleryFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun getDate(milliSeconds: Long, dateFormat: String?): String? {
+        // Create a DateFormatter object for displaying date in specified format.
+        val formatter = SimpleDateFormat(dateFormat)
+
+        // Create a calendar object that will convert the date and time value in milliseconds to date.
+        val calendar: Calendar = Calendar.getInstance()
+        calendar.setTimeInMillis(milliSeconds)
+        return formatter.format(calendar.getTime())
     }
 }

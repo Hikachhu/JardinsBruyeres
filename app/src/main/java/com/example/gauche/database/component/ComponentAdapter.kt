@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.gauche.R
 import com.example.gauche.database.listComponent.ListComponent
 import com.example.gauche.database.listComponent.ListComponentViewHolder
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class ComponentAdapter internal constructor(context: Context) : RecyclerView.Adapter<ComponentAdapter.ComponentViewHolder>() {
@@ -30,7 +32,7 @@ class ComponentAdapter internal constructor(context: Context) : RecyclerView.Ada
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ComponentViewHolder, position: Int) {
         val current = listComponent[position]
-        holder.wordItemView.text = current.ID.toString() +" | "+current.dateAjout.toString()+" | "+current.type.toString()+" | "+current.name
+        holder.wordItemView.text =getDate(current.dateAjout,"dd/MM/yyyy hh:mm:ss")+" | "+current.type.toString()+" | "+current.name
         holder.wordItemView.setTextColor(Color.WHITE);
     }
 
@@ -46,4 +48,17 @@ class ComponentAdapter internal constructor(context: Context) : RecyclerView.Ada
 
 
     override fun getItemCount() = listComponent.size
+
+
+
+    @SuppressLint("SimpleDateFormat")
+    fun getDate(milliSeconds: Long, dateFormat: String?): String? {
+        // Create a DateFormatter object for displaying date in specified format.
+        val formatter = SimpleDateFormat(dateFormat)
+
+        // Create a calendar object that will convert the date and time value in milliseconds to date.
+        val calendar: Calendar = Calendar.getInstance()
+        calendar.timeInMillis = milliSeconds
+        return formatter.format(calendar.time)
+    }
 }

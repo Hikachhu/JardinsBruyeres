@@ -21,6 +21,7 @@ class ListComponentViewModel(application: Application) : AndroidViewModel(applic
 
     private val repository: ListComponentRepository
     val allWords: LiveData<List<ListComponent>>
+    val size: LiveData<Int>
     val allWordsContent: LiveData<List<String>>
 
     init {
@@ -28,6 +29,7 @@ class ListComponentViewModel(application: Application) : AndroidViewModel(applic
         repository = ListComponentRepository(wordsDao)
         allWords = repository.allWords
         allWordsContent=repository.allWordsContent
+        size=repository.size
     }
 
     fun insert(word: ListComponent) = scope.launch(Dispatchers.IO) {

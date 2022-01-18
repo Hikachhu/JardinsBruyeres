@@ -13,13 +13,13 @@ interface RelevesCapteursDao {
     val size: Int?
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insert(listComponent: RelevesCapteurs?)
+    fun insert(relevesCapteurs: RelevesCapteurs?)
 
-    @Query("SELECT nameComponent FROM ListComponent_table where typComponent=:numberListComponent")
-    fun getSpecificListComponent(numberListComponent: Int?): String?
-
-    @Query("DELETE FROM ListComponent_table")
+    @Query("DELETE FROM RelevesCapteurs_table")
     fun deleteAll()
+
+    @Query("SELECT * FROM RelevesCapteurs_table WHERE IdCapteur=:position ORDER BY ID ASC")
+    fun allWordsOfCapteur (position:Int):LiveData<List<RelevesCapteurs>>
 
     @Delete
     fun deleteWord(relevesCapteurs: RelevesCapteurs?)

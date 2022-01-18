@@ -10,6 +10,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gauche.R
 import com.example.gauche.database.component.ComponentAdapter
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class RelevesCapteursAdapter internal constructor(context: Context) : RecyclerView.Adapter<RelevesCapteursAdapter.ListComponentViewHolder>() {
@@ -29,7 +31,7 @@ class RelevesCapteursAdapter internal constructor(context: Context) : RecyclerVi
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ListComponentViewHolder, position: Int) {
         val current = listComponent[position]
-        holder.wordItemView.text = current.ID.toString()+" | "+current.dateAjout+ " | "+current.valeur
+        holder.wordItemView.text = getDate(current.dateAjout,"dd/MM/yyyy hh:mm:ss")+" | "+current.IdCapteur+ " | "+current.valeur
         holder.wordItemView.setTextColor(Color.WHITE);
     }
 
@@ -45,4 +47,15 @@ class RelevesCapteursAdapter internal constructor(context: Context) : RecyclerVi
 
 
     override fun getItemCount() = listComponent.size
+
+
+    fun getDate(milliSeconds: Long, dateFormat: String?): String? {
+        // Create a DateFormatter object for displaying date in specified format.
+        val formatter = SimpleDateFormat(dateFormat)
+
+        // Create a calendar object that will convert the date and time value in milliseconds to date.
+        val calendar: Calendar = Calendar.getInstance()
+        calendar.setTimeInMillis(milliSeconds)
+        return formatter.format(calendar.getTime())
+    }
 }

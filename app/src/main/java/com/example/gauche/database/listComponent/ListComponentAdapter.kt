@@ -29,7 +29,7 @@ class ListComponentAdapter internal constructor(context: Context) : RecyclerView
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ListComponentViewHolder, position: Int) {
         val current = listComponent[position]
-        holder.wordItemView.text = current.nameComponent+" | "+current.typeComponent
+        holder.wordItemView.text = current.nameComponent+" | "+current.typeComponent+" | "+current.unite
         holder.wordItemView.setTextColor(Color.WHITE);
     }
 

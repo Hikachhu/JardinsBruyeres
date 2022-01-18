@@ -13,10 +13,10 @@ interface ListComponentDao {
     val alphabetizedWordsContent: LiveData<List<String>>
 
     @get:Query("SELECT count(*) FROM ListComponent_table")
-    val size: Int?
+    val size:LiveData<Int>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(vararg  listComponent: ListComponent?)
+    fun insert(listComponent: ListComponent?)
 
     @Query("SELECT nameComponent FROM ListComponent_table where typComponent=:numberListComponent")
     fun getSpecificListComponent(numberListComponent: Int?): String?

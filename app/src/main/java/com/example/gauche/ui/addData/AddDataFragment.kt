@@ -1,4 +1,4 @@
-package com.example.gauche.ui.slideshow
+package com.example.gauche.ui.releves
 
 import android.content.Context
 import android.os.Bundle
@@ -53,7 +53,7 @@ class AddDataFragment : Fragment() {
             { elem ->
                 for (current in elem) {
                     termsList.add(current.nameComponent)
-                    Log.e("List",current.nameComponent)
+
                 }
             })
 
@@ -77,15 +77,15 @@ class AddDataFragment : Fragment() {
                 nameCaptor.text.toString(),
                 unityCaptor.text.toString()
             ))
+            Toast.makeText(context,  "Ajout de " +nameCaptor.text.toString()+ " | "+unityCaptor.text.toString(),Toast.LENGTH_LONG).show()
         }
 
         spinnerAdapter?.notifyDataSetChanged()
 
         //Quand on appuie sur le bouton a coté du truc qui ressemble à un spinner
         boutonSpinner.setOnClickListener{
-            Log.e("clicked", selection.toString()+" "+nomNouveauComposant.text)
-            mComponentViewModel?.insert(Component(selection,
-                nomNouveauComposant.text.toString(),System.currentTimeMillis(),0))
+            mComponentViewModel?.insert(Component(selection, nomNouveauComposant.text.toString(),System.currentTimeMillis(),0))
+            Toast.makeText(context,  selection.toString()+" "+nomNouveauComposant.text,Toast.LENGTH_LONG).show()
         }
 
         Log.e("Passage","fin recycler view")

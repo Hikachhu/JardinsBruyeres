@@ -13,11 +13,11 @@ class RelevesCapteursRepository(private val wordDao: RelevesCapteursDao) {
 
     val allWords: LiveData<List<RelevesCapteurs>> = wordDao.alphabetizedWords
 
+
     @WorkerThread
     fun insert(word: RelevesCapteurs) {
         wordDao.insert(word)
     }
-
 
     /* --------------- BORRAR TODOS LOS DATOS -------------- */
 

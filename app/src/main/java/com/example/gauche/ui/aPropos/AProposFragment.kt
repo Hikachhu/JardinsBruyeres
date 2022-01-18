@@ -13,12 +13,13 @@ import com.example.gauche.R
 import com.example.gauche.database.component.Component
 import com.example.gauche.database.component.ComponentAdapter
 import com.example.gauche.database.component.ComponentViewModel
+import com.example.gauche.databinding.FragmentAproposBinding
 import com.example.gauche.databinding.FragmentGalleryBinding
 import java.sql.Timestamp
 
 class AProposFragment : Fragment() {
 
-    private var _binding: FragmentGalleryBinding? = null
+    private var _binding: FragmentAproposBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -30,8 +31,7 @@ class AProposFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-
-        _binding = FragmentGalleryBinding.inflate(inflater, container, false)
+        _binding = FragmentAproposBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         Log.e("Passage","fin recycler view A propos")
