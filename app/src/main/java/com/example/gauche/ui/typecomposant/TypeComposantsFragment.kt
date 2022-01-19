@@ -12,10 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gauche.database.listComponent.ListComponent
 import com.example.gauche.R
-import com.example.gauche.database.component.Alerte
-import com.example.gauche.database.component.AlerteViewModel
-import com.example.gauche.database.component.ListeTypeAlerte
-import com.example.gauche.database.component.ListeTypeAlerteViewModel
+import com.example.gauche.database.component.*
 import com.example.gauche.database.listComponent.ListComponentAdapter
 import com.example.gauche.database.listComponent.ListComponentViewModel
 import com.example.gauche.databinding.FragmentHomeBinding
@@ -27,6 +24,7 @@ class TypeComposantsFragment : Fragment() {
     private var mComponentViewModel: ListComponentViewModel? = null
     private var mListeTypeAlerteViewModel: ListeTypeAlerteViewModel? = null
     private var mAlerteViewModel: AlerteViewModel? = null
+    private var mBacViewModel: BacViewModel? = null
 
     private val binding get() = _binding!!
 
@@ -59,6 +57,14 @@ class TypeComposantsFragment : Fragment() {
             if (words.size<2){
                 for (i in 1..5) {
                     mAlerteViewModel?.insert(Alerte(i+1,i,i*2+10))
+                }
+            }
+        })
+        mBacViewModel = ViewModelProvider(this)[BacViewModel::class.java]
+        mBacViewModel?.allWords?.observe(viewLifecycleOwner, { words ->
+            if (words.size<2){
+                for (i in 1..5) {
+                    mBacViewModel?.insert(Bac(i+1,i+1,(i+2)%3, "bac num $i"))
                 }
             }
         })

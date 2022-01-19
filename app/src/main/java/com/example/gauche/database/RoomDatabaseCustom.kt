@@ -15,7 +15,12 @@ import com.example.gauche.database.relevesCapteurs.RelevesCapteursDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [Component::class,ListComponent::class,RelevesCapteurs::class,ListeTypeAlerte::class,Alerte::class], version = 2, exportSchema = false)
+@Database(entities = [  Component::class,
+                        ListComponent::class,
+                        RelevesCapteurs::class,
+                        ListeTypeAlerte::class,
+                        Alerte::class,
+                        Bac::class], version = 2, exportSchema = false)
 abstract class RoomDatabaseCustom : RoomDatabase() {
 
     abstract fun ComponentDao(): ComponentDao
@@ -23,6 +28,7 @@ abstract class RoomDatabaseCustom : RoomDatabase() {
     abstract fun RelevesCapteursDao(): RelevesCapteursDao
     abstract fun ListeTypeAlerteDao(): ListeTypeAlerteDao
     abstract fun AlerteDao(): AlerteDao
+    abstract fun BacDao(): BacDao
 
     companion object {
         @Volatile
