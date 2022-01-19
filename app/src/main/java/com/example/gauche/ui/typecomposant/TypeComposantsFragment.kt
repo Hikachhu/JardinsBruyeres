@@ -26,6 +26,7 @@ class TypeComposantsFragment : Fragment() {
     private var mAlerteViewModel: AlerteViewModel? = null
     private var mBacViewModel: BacViewModel? = null
     private var mListeBacPositionViewModel: ListeBacPositionViewModel? = null
+    private var mAlerteRecuViewModel: AlerteRecuViewModel? = null
 
     private val binding get() = _binding!!
 
@@ -45,6 +46,25 @@ class TypeComposantsFragment : Fragment() {
                 }
             }
         })
+        automaticAddData()
+        val adapter = activity?.let { ListComponentAdapter(it.application) }
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        mComponentViewModel?.allWords?.observe(viewLifecycleOwner, Observer { words ->
+            words?.let {
+                adapter?.setWords(it)
+            }
+        })
+        Log.e("Passage","fin recycler view")
+        return root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+    fun automaticAddData(){
+
         mListeTypeAlerteViewModel = ViewModelProvider(this)[ListeTypeAlerteViewModel::class.java]
         mListeTypeAlerteViewModel?.allWords?.observe(viewLifecycleOwner, { words ->
             if (words.size<2){
@@ -77,20 +97,13 @@ class TypeComposantsFragment : Fragment() {
                 }
             }
         })
-        val adapter = activity?.let { ListComponentAdapter(it.application) }
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        mComponentViewModel?.allWords?.observe(viewLifecycleOwner, Observer { words ->
-            words?.let {
-                adapter?.setWords(it)
+        mAlerteRecuViewModel = ViewModelProvider(this)[AlerteRecuViewModel::class.java]
+        mAlerteRecuViewModel?.allWords?.observe(viewLifecycleOwner, { words ->
+            if (words.size<2){
+                for (i in 1..5) {
+                    mAlerteRecuViewModel?.insert(AlerteRecu(i,System.currentTimeMillis(),i+2))
+                }
             }
         })
-        Log.e("Passage","fin recycler view")
-        return root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
