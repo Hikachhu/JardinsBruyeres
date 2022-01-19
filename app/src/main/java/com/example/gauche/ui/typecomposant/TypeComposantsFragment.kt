@@ -25,6 +25,7 @@ class TypeComposantsFragment : Fragment() {
     private var mListeTypeAlerteViewModel: ListeTypeAlerteViewModel? = null
     private var mAlerteViewModel: AlerteViewModel? = null
     private var mBacViewModel: BacViewModel? = null
+    private var mListeBacPositionViewModel: ListeBacPositionViewModel? = null
 
     private val binding get() = _binding!!
 
@@ -65,6 +66,14 @@ class TypeComposantsFragment : Fragment() {
             if (words.size<2){
                 for (i in 1..5) {
                     mBacViewModel?.insert(Bac(i+1,i+1,(i+2)%3, "bac num $i"))
+                }
+            }
+        })
+        mListeBacPositionViewModel = ViewModelProvider(this)[ListeBacPositionViewModel::class.java]
+        mListeBacPositionViewModel?.allWords?.observe(viewLifecycleOwner, { words ->
+            if (words.size<2){
+                for (i in 1..5) {
+                    mListeBacPositionViewModel?.insert(ListeBacPosition(i,i+1,i+2))
                 }
             }
         })

@@ -20,7 +20,8 @@ import kotlinx.coroutines.launch
                         RelevesCapteurs::class,
                         ListeTypeAlerte::class,
                         Alerte::class,
-                        Bac::class], version = 2, exportSchema = false)
+                        Bac::class,
+                        ListeBacPosition::class], version = 2, exportSchema = false)
 abstract class RoomDatabaseCustom : RoomDatabase() {
 
     abstract fun ComponentDao(): ComponentDao
@@ -29,6 +30,7 @@ abstract class RoomDatabaseCustom : RoomDatabase() {
     abstract fun ListeTypeAlerteDao(): ListeTypeAlerteDao
     abstract fun AlerteDao(): AlerteDao
     abstract fun BacDao(): BacDao
+    abstract fun ListeBacPositionDao():  ListeBacPositionDao
 
     companion object {
         @Volatile
