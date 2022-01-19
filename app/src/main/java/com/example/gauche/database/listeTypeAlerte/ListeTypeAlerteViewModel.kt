@@ -11,23 +11,23 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 
-class ComponentViewModel(application: Application) : AndroidViewModel(application) {
+class ListeTypeAlerteViewModel(application: Application) : AndroidViewModel(application) {
 
     private var parentJob = Job()
     private val coroutineContext: CoroutineContext
         get() = parentJob + Dispatchers.Main
     private val scope = CoroutineScope(coroutineContext)
 
-    private val repository: ComponentRepository
-    val allWords: LiveData<List<Component>>
+    private val repository: ListeTypeAlerteRepository
+    val allWords: LiveData<List<ListeTypeAlerte>>
 
     init {
-        val wordsDao = RoomDatabaseCustom.getDatabase(application, scope).ComponentDao()
-        repository = ComponentRepository(wordsDao)
+        val wordsDao = RoomDatabaseCustom.getDatabase(application, scope).ListeTypeAlerteDao()
+        repository = ListeTypeAlerteRepository(wordsDao)
         allWords = repository.allWords
     }
 
-    fun insert(word: Component) = scope.launch(Dispatchers.IO) {
+    fun insert(word: ListeTypeAlerte) = scope.launch(Dispatchers.IO) {
         repository.insert(word)
     }
 
@@ -40,7 +40,7 @@ class ComponentViewModel(application: Application) : AndroidViewModel(applicatio
         repository.deleteAll()
     }
 
-    fun deleteWord(word: Component) {
+    fun deleteWord(word: ListeTypeAlerte) {
         repository.deleteListComponent(word)
     }
 

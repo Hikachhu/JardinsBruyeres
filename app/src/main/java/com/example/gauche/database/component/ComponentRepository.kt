@@ -1,10 +1,8 @@
-package com.example.gauche.database
+package com.example.gauche.database.component
 
 import androidx.lifecycle.LiveData
 import androidx.annotation.WorkerThread
 import android.os.AsyncTask
-import com.example.gauche.database.component.Component
-import com.example.gauche.database.component.ComponentDao
 
 
 class ComponentRepository(private val wordDao: ComponentDao) {

@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gauche.database.listComponent.ListComponent
 import com.example.gauche.R
+import com.example.gauche.database.component.ListeTypeAlerte
+import com.example.gauche.database.component.ListeTypeAlerteViewModel
 import com.example.gauche.database.listComponent.ListComponentAdapter
 import com.example.gauche.database.listComponent.ListComponentViewModel
 import com.example.gauche.databinding.FragmentHomeBinding
@@ -21,6 +23,8 @@ class TypeComposantsFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private var mComponentViewModel: ListComponentViewModel? = null
+    private var mListeTypeAlerteViewModel: ListeTypeAlerteViewModel? = null
+
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -39,7 +43,14 @@ class TypeComposantsFragment : Fragment() {
                 }
             }
         })
-
+        mListeTypeAlerteViewModel = ViewModelProvider(this)[ListeTypeAlerteViewModel::class.java]
+        mListeTypeAlerteViewModel?.allWords?.observe(viewLifecycleOwner, { words ->
+            if (words.size<2){
+                for (i in 1..5) {
+                    mListeTypeAlerteViewModel?.insert(ListeTypeAlerte(i+1,i*2+1))
+                }
+            }
+        })
         val adapter = activity?.let { ListComponentAdapter(it.application) }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)

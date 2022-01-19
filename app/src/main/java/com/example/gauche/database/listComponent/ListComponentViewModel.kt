@@ -3,7 +3,6 @@ package com.example.gauche.database.listComponent
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.example.gauche.database.ListComponentRepository
 import com.example.gauche.database.RoomDatabaseCustom
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

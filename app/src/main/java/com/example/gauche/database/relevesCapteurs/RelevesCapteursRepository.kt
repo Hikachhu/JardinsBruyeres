@@ -1,12 +1,8 @@
-package com.example.gauche.database
+package com.example.gauche.database.relevesCapteurs
 
 import androidx.lifecycle.LiveData
 import androidx.annotation.WorkerThread
 import android.os.AsyncTask
-import com.example.gauche.database.component.Component
-import com.example.gauche.database.component.ComponentDao
-import com.example.gauche.database.relevesCapteurs.RelevesCapteurs
-import com.example.gauche.database.relevesCapteurs.RelevesCapteursDao
 
 
 class RelevesCapteursRepository(private val wordDao: RelevesCapteursDao) {

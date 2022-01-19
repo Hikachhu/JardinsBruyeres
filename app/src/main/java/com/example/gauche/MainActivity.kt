@@ -10,12 +10,13 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.NavHostFragment.findNavController
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import com.example.gauche.databinding.ActivityMainBinding
+import okhttp3.Response
+import retrofit2.Call
+import javax.security.auth.callback.Callback
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -58,4 +59,5 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
 }

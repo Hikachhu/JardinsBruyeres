@@ -9,6 +9,8 @@ import androidx.room.Room
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.gauche.database.component.Component
 import com.example.gauche.database.component.ComponentDao
+import com.example.gauche.database.component.ListeTypeAlerte
+import com.example.gauche.database.component.ListeTypeAlerteDao
 import com.example.gauche.database.listComponent.ListComponent
 import com.example.gauche.database.listComponent.ListComponentDao
 import com.example.gauche.database.relevesCapteurs.RelevesCapteurs
@@ -16,12 +18,13 @@ import com.example.gauche.database.relevesCapteurs.RelevesCapteursDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [Component::class,ListComponent::class,RelevesCapteurs::class], version = 2, exportSchema = false)
+@Database(entities = [Component::class,ListComponent::class,RelevesCapteurs::class,ListeTypeAlerte::class], version = 2, exportSchema = false)
 abstract class RoomDatabaseCustom : RoomDatabase() {
 
     abstract fun ComponentDao(): ComponentDao
     abstract fun ListComponentDao(): ListComponentDao
     abstract fun RelevesCapteursDao(): RelevesCapteursDao
+    abstract fun ListeTypeAlerteDao(): ListeTypeAlerteDao
 
     companion object {
         @Volatile
