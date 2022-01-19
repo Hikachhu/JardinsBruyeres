@@ -5,18 +5,32 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gauche.database.listComponent.ListComponent
+import com.example.gauche.ApiHelper
 import com.example.gauche.R
+import com.example.gauche.ResultApiObject
 import com.example.gauche.database.component.*
+import com.example.gauche.database.listComponent.ListComponent
 import com.example.gauche.database.listComponent.ListComponentAdapter
 import com.example.gauche.database.listComponent.ListComponentViewModel
 import com.example.gauche.databinding.FragmentHomeBinding
-import java.lang.Thread.sleep
+import com.google.gson.Gson
+import com.google.gson.internal.LinkedTreeMap
+import retrofit2.Call
+import com.google.gson.reflect.TypeToken
+import java.lang.reflect.Type;
+import com.google.gson.GsonBuilder
+
+
+
+
+
+
 
 class TypeComposantsFragment : Fragment() {
 
@@ -46,6 +60,40 @@ class TypeComposantsFragment : Fragment() {
                 }
             }
         })
+
+        val service = ApiHelper.create()
+        service.search().enqueue(object : retrofit2.Callback<Any> {
+            override fun onFailure(call: Call<Any>?, t: Throwable?) {
+                Log.e("retrofit ko", "call failed")
+
+                Toast.makeText(context,"ERROR", Toast.LENGTH_SHORT).show();
+                if (t != null) {
+                    Toast.makeText(context,"fail "+t.localizedMessage, Toast.LENGTH_SHORT).show()
+                };
+            }
+            override fun onResponse(call: Call<Any>?, response: retrofit2.Response<Any>?) {
+                if (response != null) {
+                    val value= response.body()
+                    val test = listOf(value)[0].toString()
+                    val gson = GsonBuilder()
+                        .setLenient()
+                        .create()
+                    val type: Type = object : TypeToken<Map<Any?, Any?>?>() {}.type
+                    val myMap: Map<Any, Any> =gson.fromJson(test, type)
+                    val ListeTypeComposants: Map<Any, Any> =gson.fromJson((myMap["data"] as List<*>)[0].toString(), object : TypeToken<Map<Any?, Any?>?>() {}.type)
+                    val ListeTypeAlerte: Map<Any, Any> =gson.fromJson((myMap["data"] as List<*>)[1].toString(), object : TypeToken<Map<Any?, Any?>?>() {}.type)
+
+
+                    val myMap3_0: Map<Any, Any> =gson.fromJson((ListeTypeComposants["ListeTypeComposants"] as List<*>)[0].toString(), object : TypeToken<Map<Any?, Any?>?>() {}.type)
+                    Log.e("debug","value ${myMap3_0["NomComposant"]} ${myMap3_0["typeComposant"]}");
+
+                    val myMap3: Map<Any, Any> =gson.fromJson((ListeTypeAlerte["ListeTypeAlerte"] as List<*>)[1].toString(),  object : TypeToken<Map<Any?, Any?>?>() {}.type)
+                    Log.e("debug","value ${myMap3["Criticite"]} ${myMap3["MethodeNotification"]} ${myMap3["TypeAlerte"]}");
+
+                }
+            }
+        })
+
         automaticAddData()
         val adapter = activity?.let { ListComponentAdapter(it.application) }
         recyclerView.adapter = adapter

@@ -32,29 +32,8 @@ class AProposFragment : Fragment() {
 
         _binding = FragmentAproposBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        val service = ApiHelper.create()
         val text:TextView=root.findViewById(R.id.textView2)
         text.text="GO"
-
-        service.search("Hika").enqueue(object : Callback<com.example.gauche.Result> {
-            override fun onFailure(call: Call<com.example.gauche.Result>?, t: Throwable?) {
-                Log.e("retrofit ko", "call failed")
-                text.text="Error"
-            }
-            override fun onResponse(call: Call<com.example.gauche.Result>?, response: Response<com.example.gauche.Result>?) {
-                if (response != null) {
-                    val arraysort = response.body()?.items?.let { ArrayList<String>(it.size) }
-                    response.body()?.items?.get(0)?.login?.let { Log.e("retrofit ok", it) }
-                    for (i in 0..(response.body()?.items?.size!!)-1) {
-                        if (arraysort != null) {
-                            arraysort += response.body()?.items?.get(i)?.login.toString()
-                        }
-                    }
-                    text.text=arraysort.toString()
-                }
-            }
-        })
-
 
 
         Log.e("Passage","fin recycler view A propos")

@@ -11,19 +11,14 @@ import retrofit2.http.Query
 interface ApiHelper {
 
 
-    @GET("search/users")
-    fun search(@Query("q") query: String,
-               @Query("page") page: Int = 1,
-               @Query("per_page") perPage: Int = 20): Call<Result>
+    @GET("api/capteur")
+    fun search(): Call<Any>
 
-    /**
-     * Companion object to create the GithubApiService
-     */
     companion object Factory {
         fun create(): ApiHelper {
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("https://api.github.com/")
+                .baseUrl("http://192.20.55.3:5000/")
                 .build()
             return retrofit.create(ApiHelper::class.java);
         }
