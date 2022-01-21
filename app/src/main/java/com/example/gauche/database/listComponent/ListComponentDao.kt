@@ -9,7 +9,7 @@ interface ListComponentDao {
     @get:Query("SELECT * FROM ListComponent_table ORDER BY typComponent ASC")
     val alphabetizedWords: LiveData<List<ListComponent>>
 
-    @get:Query("SELECT nameComponent FROM ListComponent_table ORDER BY typComponent ASC")
+    @get:Query("SELECT NomComposant FROM ListComponent_table ORDER BY typComponent ASC")
     val alphabetizedWordsContent: LiveData<List<String>>
 
     @get:Query("SELECT count(*) FROM ListComponent_table")
@@ -18,7 +18,7 @@ interface ListComponentDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(listComponent: ListComponent?)
 
-    @Query("SELECT nameComponent FROM ListComponent_table where typComponent=:numberListComponent")
+    @Query("SELECT NomComposant FROM ListComponent_table where typComponent=:numberListComponent")
     fun getSpecificListComponent(numberListComponent: Int?): String?
 
     @Query("DELETE FROM ListComponent_table")

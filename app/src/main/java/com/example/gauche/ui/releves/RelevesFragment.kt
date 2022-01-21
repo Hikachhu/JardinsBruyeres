@@ -43,8 +43,6 @@ class RelevesFragment : Fragment() {
         val spinnerAddData: AutoCompleteTextView =root.findViewById(R.id.spinnerReleves)
         val mComponentViewModel = ViewModelProvider(this)[ComponentViewModel::class.java]
 
-        val generateData = activity?.let { GenerateData(it.application) }
-        generateData?.GenerateRelevesCapteurs(viewLifecycleOwner,3)
 
         val adapter = activity?.let { RelevesCapteursAdapter(it.application) }
         recyclerView.adapter = adapter
@@ -59,14 +57,14 @@ class RelevesFragment : Fragment() {
             mRelevesCapteursViewModel.deleteAll()
         }
 
-        val termsList = ArrayList<String>()
-        val spinnerAdapter: ArrayAdapter<String>? = context?.let { ArrayAdapter<String>(it, android.R.layout.simple_list_item_1, termsList) }
+        val termsList = ArrayList<Int>()
+        val spinnerAdapter: ArrayAdapter<Int>? = context?.let { ArrayAdapter<Int>(it, android.R.layout.simple_list_item_1, termsList) }
         spinnerAddData.setAdapter(spinnerAdapter)
         spinnerAdapter?.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         mComponentViewModel!!.allWords.observe(viewLifecycleOwner,
             { elem ->
                 for (current in elem) {
-                    termsList.add(current.name)
+                    current.ID?.let { termsList.add(it) }
                 }
             })
 

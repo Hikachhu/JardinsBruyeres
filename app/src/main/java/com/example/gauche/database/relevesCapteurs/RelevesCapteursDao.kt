@@ -12,7 +12,7 @@ interface RelevesCapteursDao {
     @get:Query("SELECT count(*) FROM RelevesCapteurs_table")
     val size: Int?
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(relevesCapteurs: RelevesCapteurs?)
 
     @Query("DELETE FROM RelevesCapteurs_table")

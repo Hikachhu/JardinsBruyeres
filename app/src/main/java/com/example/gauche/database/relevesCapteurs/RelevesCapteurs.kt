@@ -33,13 +33,12 @@ import com.example.gauche.database.component.Component
  */
 @Entity(
     tableName = "RelevesCapteurs_table",
-    foreignKeys = [ForeignKey(
+/*    foreignKeys = [ForeignKey(
         entity = Component::class,
         parentColumns = ["ID"],
         childColumns = ["IdCapteur"],
-
         onDelete= NO_ACTION
-    )]
+    )]*/
 )
 class RelevesCapteurs(
     @field:ColumnInfo(name = "ID",index = true) @field:PrimaryKey(autoGenerate = true) var ID: Int?,

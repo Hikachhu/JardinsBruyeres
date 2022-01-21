@@ -75,7 +75,7 @@ class AddDataFragment : Fragment() {
         boutonAddData.setOnClickListener{
             mListComponentViewModel?.insert(ListComponent(
                 nameCaptor.text.toString(),
-                unityCaptor.text.toString()
+                unityCaptor.text as Double
             ))
             Toast.makeText(context,  "Ajout de " +nameCaptor.text.toString()+ " | "+unityCaptor.text.toString(),Toast.LENGTH_LONG).show()
         }
@@ -84,7 +84,7 @@ class AddDataFragment : Fragment() {
 
         //Quand on appuie sur le bouton a coté du truc qui ressemble à un spinner
         boutonSpinner.setOnClickListener{
-            mComponentViewModel?.insert(Component(selection, nomNouveauComposant.text.toString(),System.currentTimeMillis(),0))
+            mComponentViewModel?.insert(Component(selection,System.currentTimeMillis(),0))
             Toast.makeText(context,  selection.toString()+" "+nomNouveauComposant.text,Toast.LENGTH_LONG).show()
         }
 

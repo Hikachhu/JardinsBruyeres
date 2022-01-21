@@ -32,11 +32,11 @@ import androidx.room.Entity
     tableName = "ListComponent_table"
 )
 class ListComponent(
-    @field:ColumnInfo(name = "typComponent",index = true) @field:PrimaryKey(autoGenerate = true) var typeComponent: Int?,
-    @field:ColumnInfo(name = "nameComponent",index = true) var nameComponent: String,
-    @field:ColumnInfo(name = "unite",index = true) var unite: String
+    @field:ColumnInfo(name = "typComponent",index = true) @field:PrimaryKey(autoGenerate = true) var ID: Int?,
+    @field:ColumnInfo(name = "NomComposant",index = true) var nameComponent: String,
+    @field:ColumnInfo(name = "typeComposant",index = true) var typeComposant: Double
 )
 {
-    constructor(nameComponent: String,unite: String):this(null,
+    constructor(nameComponent: String, unite: Double):this(null,
         nameComponent,unite)
 }

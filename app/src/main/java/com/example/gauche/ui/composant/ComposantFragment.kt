@@ -38,9 +38,6 @@ class ComposantFragment : Fragment() {
         val root: View = binding.root
         val recyclerView: RecyclerView = root.findViewById(R.id.recycleur_view_Component)
         val mComponentViewModel = ViewModelProvider(this)[ComponentViewModel::class.java]
-        for (i in 1..5) {
-            mComponentViewModel.insert(Component( i,i,"Composant $i", System.currentTimeMillis(),1))
-        }
         val adapter = activity?.let { ComponentAdapter(it.application) }
         recyclerView.adapter = adapter
         recyclerView.layoutManager= LinearLayoutManager(context)

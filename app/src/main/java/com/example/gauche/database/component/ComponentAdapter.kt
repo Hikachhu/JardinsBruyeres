@@ -32,7 +32,7 @@ class ComponentAdapter internal constructor(context: Context) : RecyclerView.Ada
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ComponentViewHolder, position: Int) {
         val current = listComponent[position]
-        holder.wordItemView.text =getDate(current.dateAjout,"dd/MM/yyyy hh:mm:ss")+" | "+current.type.toString()+" | "+current.name
+        holder.wordItemView.text =getDate(current.dateAjout,"dd/MM/yyyy hh:mm:ss")+" | "+current.type.toString()
         holder.wordItemView.setTextColor(Color.WHITE);
     }
 

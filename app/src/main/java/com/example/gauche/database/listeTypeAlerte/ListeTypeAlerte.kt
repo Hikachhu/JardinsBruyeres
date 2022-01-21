@@ -11,9 +11,9 @@ import com.example.gauche.database.listComponent.ListComponent
     tableName = "ListeTypeAlerte_table",
 )
 class ListeTypeAlerte(
-    @field:ColumnInfo(name = "TypeAlerte",index = true)  @field:PrimaryKey(autoGenerate = true) var ID: Int?,
-    @field:ColumnInfo(name = "Criticite",index = true) var type: Int,
-    @field:ColumnInfo(name = "MethodeNotification",index = true) var position: Int
+    @field:ColumnInfo(name = "TypeAlerte",index = true)  @field:PrimaryKey(autoGenerate = true) var TypeAlerte: Int?,
+    @field:ColumnInfo(name = "Criticite",index = true) var Criticite: Int,
+    @field:ColumnInfo(name = "MethodeNotification",index = true) var MethodeNotification: Int
 )
 {
     constructor(type: Int, position:Int):this(null,

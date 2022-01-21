@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gauche.R
-import com.example.gauche.database.component.ComponentAdapter
 
 
 class ListComponentAdapter internal constructor(context: Context) : RecyclerView.Adapter<ListComponentAdapter.ListComponentViewHolder>() {
@@ -29,7 +28,7 @@ class ListComponentAdapter internal constructor(context: Context) : RecyclerView
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ListComponentViewHolder, position: Int) {
         val current = listComponent[position]
-        holder.wordItemView.text = current.nameComponent+" | "+current.typeComponent+" | "+current.unite
+        holder.wordItemView.text = current.nameComponent+" | "+current.ID+" | "+current.typeComposant
         holder.wordItemView.setTextColor(Color.WHITE);
     }
 

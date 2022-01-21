@@ -33,7 +33,7 @@ class ListeTypeAlerteAdapter internal constructor(context: Context) : RecyclerVi
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ListeTypeAlerteViewHolder, position: Int) {
         val current = listComponent[position]
-        holder.wordItemView.text =current.ID.toString()+" | "+current.type.toString()+" | "+current.position
+        holder.wordItemView.text =current.TypeAlerte.toString()+" | "+current.Criticite.toString()+" | "+current.MethodeNotification
         holder.wordItemView.setTextColor(Color.WHITE);
     }
 

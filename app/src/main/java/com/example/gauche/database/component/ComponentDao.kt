@@ -13,7 +13,7 @@ interface ComponentDao {
     @get:Query("SELECT count(*) FROM Component_table")
     val size: Int?
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(component: Component?)
 
     @Query("SELECT * FROM Component_table where ID=:IDComponent")
