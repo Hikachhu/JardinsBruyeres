@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Gauche</string>
+    <string name="app_name">JardinBruyere</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -18,8 +18,15 @@
     <string name="ajouter">Ajouter</string>
     <string name="unit_capteur">Unité capteur</string>
     <string name="a_propos">A propos</string>
-    <string name="donn_es">Données</string>
     <string name="composants">Composants</string>
     <string name="ajout_donn_es">Ajout données</string>
     <string name="types_composants">Types composants</string>
+    <string name="capteurs">Capteurs</string>
+    <string name="types_de_capteurs">Types de capteurs</string>
+    <string name="donn_es">Données</string>
+    <string name="graphiques">Graphiques</string>
+    <string name="jardins_de_la_bruy_res">Jardins de la Bruyères</string>
+    <string name="bienvenu_dans_cette_super_application">Bienvenu dans cette super application</string>
+    <string name="changer_l_ip">Changer l\'ip:</string>
+    <integer name="btnplusview">1</integer>
 </resources>

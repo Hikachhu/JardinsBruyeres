@@ -5,21 +5,25 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/types_composants" />
-        <item
-            android:id="@+id/nav_addData"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/ajout_donn_es" />
+            android:id="@+id/nav_start"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Home" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/composants" />
+            android:title="@string/capteurs" />
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/types_de_capteurs" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/donn_es" />
+        <item
+            android:id="@+id/nav_addData"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/graphiques" />
         <item
             android:id="@+id/nav_apropos"
             android:icon="@drawable/ic_menu_slideshow"

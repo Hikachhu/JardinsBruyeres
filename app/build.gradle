@@ -9,7 +9,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.example.gauche"
+        applicationId "fr.JardinBruyere.gauche"
         minSdk 21
         targetSdk 31
         versionCode 1
@@ -94,4 +94,7 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.10'
     implementation 'com.squareup.okhttp3:okhttp:4.9.3'
+
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
 }

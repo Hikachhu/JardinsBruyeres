@@ -3,21 +3,32 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/drawable/back.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2526041666666667" />
+        <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.2526041666666667" />
+        <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/drawable/icone.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/a_propos.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/activity_linechart.xml" value="0.25" />
+        <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/activity_linechart_time.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/app_bar_main.xml" value="0.23822463768115942" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/content_main.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/custom_marker_view.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/fragment_adddata.xml" value="0.33" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/fragment_apropos.xml" value="0.67" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/fragment_gallery.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/fragment_home.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/fragment_slideshow.xml" value="0.47058823529411764" />
-        <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/nav_header_main.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/fragment_start.xml" value="0.23645833333333333" />
+        <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/lv_item.xml" value="0.2798913043478261" />
+        <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/named_lv_item.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/nav_header_main.xml" value="0.75" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/recyclerview_item.xml" value="0.22" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/spinner_item.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/menu/activity_main_drawer.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/menu/main.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/florian/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.20520833333333333" />
       </map>
     </option>
