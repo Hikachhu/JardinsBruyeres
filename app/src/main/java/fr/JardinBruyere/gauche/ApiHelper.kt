@@ -23,12 +23,12 @@ interface ApiHelper {
     fun getStation(): Call<Any>
 
     companion object Factory {
-        fun create(ip: String): fr.JardinBruyere.gauche.ApiHelper {
+        fun create(ip: String): ApiHelper {
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl("http://$ip:5001/")
                 .build()
-            return retrofit.create(fr.JardinBruyere.gauche.ApiHelper::class.java);
+            return retrofit.create(ApiHelper::class.java);
         }
     }
 }

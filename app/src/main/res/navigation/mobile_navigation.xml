@@ -7,35 +7,35 @@
 
     <fragment
         android:id="@+id/nav_start"
-        android:name="com.example.gauche.ui.StartFragment"
+        android:name="fr.JardinBruyere.gauche.ui.StartFragment"
         android:label="Start"
         tools:layout="@layout/fragment_start" />
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.gauche.ui.typecomposant.TypeComposantsFragment"
+        android:name="fr.JardinBruyere.gauche.ui.typecomposant.TypeComposantsFragment"
         android:label="Types composants"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/nav_addData"
-        android:name="com.example.gauche.ui.addData.AddDataFragment"
+        android:name="fr.JardinBruyere.gauche.ui.addData.AddDataFragment"
         android:label="Ajout données"
         tools:layout="@layout/fragment_adddata" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.gauche.ui.composant.ComposantFragment"
+        android:name="fr.JardinBruyere.gauche.ui.composant.ComposantFragment"
         android:label="Composants"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_apropos"
-        android:name="com.example.gauche.ui.aPropos.AProposFragment"
+        android:name="fr.JardinBruyere.gauche.ui.aPropos.AProposFragment"
         android:label="A propos"
         tools:layout="@layout/fragment_apropos" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.gauche.ui.releves.RelevesFragment"
+        android:name="fr.JardinBruyere.gauche.ui.releves.RelevesFragment"
         android:label="Données"
         tools:layout="@layout/fragment_slideshow" />
 </navigation>

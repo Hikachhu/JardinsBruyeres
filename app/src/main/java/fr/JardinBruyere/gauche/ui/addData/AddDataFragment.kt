@@ -56,7 +56,7 @@ class AddDataFragment : Fragment() {
 
             modelArrayList = list
             val customAdapter = fr.JardinBruyere.gauche.CustomAdapter(context, modelArrayList)
-            lv.adapter = customAdapter
+           if(list.size!=0)   lv.adapter = customAdapter
         })
 
         Log.e("Passage","fin recycler view")

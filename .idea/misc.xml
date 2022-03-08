@@ -6,8 +6,11 @@
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/drawable/back.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2526041666666667" />
+        <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/drawable/ic_menu_camera.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.2526041666666667" />
+        <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/drawable/icone.xml" value="0.2526041666666667" />
+        <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/drawable/side_nav_bar.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/a_propos.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/activity_linechart.xml" value="0.25" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/activity_linechart_time.xml" value="0.36666666666666664" />
@@ -23,7 +26,7 @@
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/fragment_start.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/lv_item.xml" value="0.2798913043478261" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/named_lv_item.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/nav_header_main.xml" value="0.75" />
+        <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/nav_header_main.xml" value="0.25" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/recyclerview_item.xml" value="0.22" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/layout/spinner_item.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/florian/AndroidStudioProjects/Gauche/app/src/main/res/menu/activity_main_drawer.xml" value="0.36666666666666664" />

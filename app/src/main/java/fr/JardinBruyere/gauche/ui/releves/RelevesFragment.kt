@@ -36,9 +36,7 @@ class RelevesFragment : Fragment() {
         _binding = FragmentSlideshowBinding.inflate(inflater, container, false)
         val root: View = binding.root
         val recyclerView: RecyclerView = root.findViewById(R.id.recycleur_view_RelevesCapteurs)
-        val boutonDelete: Button=root.findViewById(R.id.buttonRelevesCapteurs)
         val mRelevesCapteursViewModel = ViewModelProvider(this)[SensorReadingViewModel::class.java]
-        val spinnerAddData: AutoCompleteTextView =root.findViewById(R.id.spinnerReleves)
         val mComponentViewModel = ViewModelProvider(this)[SensorViewModel::class.java]
 
 
@@ -51,14 +49,8 @@ class RelevesFragment : Fragment() {
             }
         })
 
-        boutonDelete.setOnClickListener{
-            mRelevesCapteursViewModel.deleteAll()
-        }
 
         val termsList = ArrayList<Int>()
-        val spinnerAdapter: ArrayAdapter<Int>? = context?.let { ArrayAdapter<Int>(it, android.R.layout.simple_list_item_1, termsList) }
-        spinnerAddData.setAdapter(spinnerAdapter)
-        spinnerAdapter?.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         mComponentViewModel!!.allWords.observe(viewLifecycleOwner,
             { elem ->
                 for (current in elem) {
@@ -75,7 +67,6 @@ class RelevesFragment : Fragment() {
                 })
             }
 */
-        spinnerAdapter?.notifyDataSetChanged()
 
 
         Log.e("Passage","fin recycler view")

@@ -49,9 +49,10 @@ public class MultiLineChartActivity extends DemoBase implements OnSeekBarChangeL
         OnChartGestureListener, OnChartValueSelectedListener {
 
     public static ArrayList<String> listOfName;
+    public static ArrayList<String> listOfDate;
     private LineChart chart;
-    private Button seekBarX, seekBarY;
-    private TextView tvX, tvY;
+    private Button seekBarY;
+    private TextView tvX;
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -67,6 +68,7 @@ public class MultiLineChartActivity extends DemoBase implements OnSeekBarChangeL
 
         ArrayList<String> pleasework = new ArrayList<>();
         listOfName= new ArrayList<String>();
+        listOfDate=new ArrayList<>();
         tvX = findViewById(R.id.tvXMax);
         setTitle("MultiLineChartActivity");
 
@@ -84,15 +86,16 @@ public class MultiLineChartActivity extends DemoBase implements OnSeekBarChangeL
         chart = findViewById(R.id.chart1);
         chart.setOnChartValueSelectedListener(this);
 
-        chart.setDrawGridBackground(false);
+        chart.setDrawGridBackground(true);
         chart.getDescription().setEnabled(false);
-        chart.setDrawBorders(false);
+        chart.setDrawBorders(true);
+        chart.setGridBackgroundColor(Color.BLACK);
 
-        chart.getAxisLeft().setEnabled(false);
-        chart.getAxisRight().setDrawAxisLine(false);
-        chart.getAxisRight().setDrawGridLines(false);
-        chart.getXAxis().setDrawAxisLine(false);
-        chart.getXAxis().setDrawGridLines(false);
+        chart.getAxisLeft().setEnabled(true);
+        chart.getAxisRight().setDrawAxisLine(true);
+        chart.getAxisRight().setDrawGridLines(true);
+        chart.getXAxis().setDrawAxisLine(true);
+        chart.getXAxis().setDrawGridLines(true);
 
         // enable touch gestures
         chart.setTouchEnabled(true);
@@ -108,9 +111,9 @@ public class MultiLineChartActivity extends DemoBase implements OnSeekBarChangeL
         Legend l = chart.getLegend();
         l.setVerticalAlignment(Legend.LegendVerticalAlignment.BOTTOM);
         l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
-        l.setOrientation(Legend.LegendOrientation.VERTICAL);
+        l.setOrientation(Legend.LegendOrientation.HORIZONTAL);
         l.setDrawInside(false);
-        l.setTextColor(Color.BLACK);
+        l.setTextColor(Color.WHITE);;
 
 
         XAxis xAxis = chart.getXAxis();
@@ -120,9 +123,8 @@ public class MultiLineChartActivity extends DemoBase implements OnSeekBarChangeL
         xAxis.setTextColor(Color.WHITE);
         xAxis.setDrawAxisLine(false);
         xAxis.setDrawGridLines(true);
-        xAxis.setTextColor(Color.rgb(255, 192, 56));
         xAxis.setCenterAxisLabels(true);
-        xAxis.setGranularity(1f); // one hour
+        xAxis.setLabelRotationAngle(22f);
         xAxis.setValueFormatter(new ValueFormatter() {
 
             @Override
@@ -133,7 +135,6 @@ public class MultiLineChartActivity extends DemoBase implements OnSeekBarChangeL
                     display=pleasework.get(pleasework.size()-1);
                 else
                     display=pleasework.get(index);
-                Log.e("DATE AFFICHAGE", String.format("\t\t%f %s",value,display));
                 return display;
             }
 
@@ -157,21 +158,27 @@ public class MultiLineChartActivity extends DemoBase implements OnSeekBarChangeL
                 }
             }
         });
-
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
 
         Log.e("test ",dataSets.size()+" "+CustomAdapter.list.size());
         AsyncTask.execute(() -> {
+            @SuppressLint("SimpleDateFormat") SimpleDateFormat format = new SimpleDateFormat("dd/MM HH'h'mm");
+
+            List<SensorReading> listing3 = mRelevesCapteursViewModel.getSensorReading(1);
+            Log.e("SIZE",listing3.toString());
+            listing3.forEach(it -> {
+                Log.e("taille", String.valueOf(listOfDate.size()));
+                listOfDate.add(format.format(it.getDateAdded()));
+            });
             for(int current: CustomAdapter.list) {
                 ArrayList<Entry> values = new ArrayList<>();
                 List<SensorReading> listing = mRelevesCapteursViewModel.getSensorReading(current);
                 final long[] i = {1};
-                    listing.forEach(it->{
+                listing.forEach(it->{
 
-                        long date = it.getDateAdded();
-                        @SuppressLint("SimpleDateFormat") SimpleDateFormat format = new SimpleDateFormat("dd/MM HH'h'mm");
-                        Log.e("DEBUG DATE", String.format("\t\t%d %s",date,format.format(date)));
-                        pleasework.add(format.format(date));
+                    long date = it.getDateAdded();
+                    @SuppressLint("SimpleDateFormat") SimpleDateFormat format2 = new SimpleDateFormat("dd/MM HH'h'mm");
+                    pleasework.add(format2.format(date));
                         values.add(new Entry(i[0], (float) it.getValue()));
                         i[0] = i[0] +1;
                     });

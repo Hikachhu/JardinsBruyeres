@@ -31,6 +31,7 @@ public class MyMarkerView extends MarkerView {
 
     // runs every time the MarkerView is redrawn, can be used to update the
     // content (user-interface)
+    @SuppressLint("SetTextI18n")
     @Override
     public void refreshContent(Entry e, Highlight highlight) {
 
@@ -41,10 +42,10 @@ public class MyMarkerView extends MarkerView {
 
             CandleEntry ce = (CandleEntry) e;
 
-            tvContent.setText("name="+MultiLineChartActivity.listOfName.get(highlight.getDataSetIndex())+"\nvalue="+Utils.formatNumber(ce.getHigh(), 0, true));
+            tvContent.setText(MultiLineChartActivity.listOfName.get(highlight.getDataSetIndex())+" ["+Utils.formatNumber(ce.getHigh(), 0, true)+"] "+MultiLineChartActivity.listOfDate.get((int) e.getX()));
         } else {
 
-            tvContent.setText("name="+MultiLineChartActivity.listOfName.get(highlight.getDataSetIndex())+"\nvalue="+Utils.formatNumber(e.getY(), 0, true));
+            tvContent.setText(MultiLineChartActivity.listOfName.get(highlight.getDataSetIndex())+" ["+Utils.formatNumber(e.getY(), 0, true)+"] "+MultiLineChartActivity.listOfDate.get((int) e.getX()));
         }
 
         super.refreshContent(e, highlight);
