@@ -13,7 +13,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
-import fr.JardinBruyere.gauche.R;
 import com.github.mikephil.charting.charts.Chart;
 import com.google.android.material.snackbar.Snackbar;
 

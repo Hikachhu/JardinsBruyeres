@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.aPropos.AProposFragment">
+    tools:context="fr.JardinBruyere.gauche.ui.aPropos.AProposFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleur_view_Component"

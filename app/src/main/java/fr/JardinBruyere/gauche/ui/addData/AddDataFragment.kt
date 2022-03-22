@@ -9,11 +9,13 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import fr.JardinBruyere.gauche.CustomAdapter
 import fr.JardinBruyere.gauche.R
 import fr.JardinBruyere.gauche.databinding.FragmentAdddataBinding
 import fr.JardinBruyere.gauche.database.sensor.SensorViewModel
 import fr.JardinBruyere.gauche.database.sensorTypes.SensorTypesViewModel
 import fr.JardinBruyere.gauche.CustomAdapter.modelArrayList
+import fr.JardinBruyere.gauche.MultiLineChartActivity
 
 import fr.JardinBruyere.gauche.database.sensor.Sensor
 
@@ -40,9 +42,9 @@ class AddDataFragment : Fragment() {
         val root: View = binding.root
         val boutonAddData: Button =root.findViewById(R.id.validateNewCaptor)
         boutonAddData.setOnClickListener {
-            Log.e("Checked", fr.JardinBruyere.gauche.CustomAdapter.list.toString())
+            Log.e("Checked", CustomAdapter.list.toString())
 
-            startActivity(Intent(context, fr.JardinBruyere.gauche.MultiLineChartActivity::class.java))
+            startActivity(Intent(context, MultiLineChartActivity::class.java))
         }
         val lv = root.findViewById(R.id.lv) as ListView
 
@@ -55,7 +57,7 @@ class AddDataFragment : Fragment() {
             }
 
             modelArrayList = list
-            val customAdapter = fr.JardinBruyere.gauche.CustomAdapter(context, modelArrayList)
+            val customAdapter = CustomAdapter(context, modelArrayList)
            if(list.size!=0)   lv.adapter = customAdapter
         })
 

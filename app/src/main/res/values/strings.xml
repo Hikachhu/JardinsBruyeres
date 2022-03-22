@@ -11,7 +11,8 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="adddata">AddData</string>
-    <string name="un_super_projet">Un super projet</string>
+    <string name="un_super_projet">Information sur le projet</string>
+
     <string name="type_de_capteur">Type de capteur</string>
     <string name="selectionner">Ajouter</string>
     <string name="nom_capteur">Nom capteur</string>

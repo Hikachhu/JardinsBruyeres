@@ -13,6 +13,8 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
 
+import fr.JardinBruyere.gauche.R;
+
 /**
  * Custom implementation of the MarkerView.
  *

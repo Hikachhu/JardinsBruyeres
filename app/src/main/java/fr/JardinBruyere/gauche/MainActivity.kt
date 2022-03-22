@@ -2,7 +2,6 @@ package fr.JardinBruyere.gauche
 
 import android.os.Bundle
 import android.view.Menu
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -12,6 +11,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import fr.JardinBruyere.gauche.R
 import fr.JardinBruyere.gauche.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -38,7 +38,12 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_slideshow, R.id.nav_home,R.id.nav_addData, R.id.nav_gallery,R.id.nav_apropos,R.id.nav_start
+                R.id.nav_slideshow,
+                R.id.nav_home,
+                R.id.nav_addData,
+                R.id.nav_gallery,
+                R.id.nav_apropos,
+                R.id.nav_start
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

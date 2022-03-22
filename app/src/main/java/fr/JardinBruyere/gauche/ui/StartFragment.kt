@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
@@ -28,10 +29,10 @@ import fr.JardinBruyere.gauche.database.station.StationViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
+import fr.JardinBruyere.gauche.ApiHelper
 import retrofit2.Call
 import java.lang.reflect.Type
 import java.text.SimpleDateFormat
-import java.util.*
 
 class StartFragment : Fragment() {
     private var _binding: FragmentStartBinding? = null
@@ -63,16 +64,25 @@ class StartFragment : Fragment() {
         val button = root.findViewById(R.id.buttonIP) as Button
         val refreshReading = root.findViewById(R.id.refreshReading) as Button
         val refreshTable = root.findViewById(R.id.refreshTable) as Button
+        val tableText=root.findViewById(R.id.textView4) as TextView
+        val relevesText=root.findViewById(R.id.textView5) as TextView
+
         val pref = context?.getSharedPreferences("MyPref", 0)
         val editor: SharedPreferences.Editor? = pref?.edit()
         editor?.commit()
         var ip = pref?.getString("ipServeur", null)
         if (ip == null) {
-            editor?.putString("ipServeur", "Ip ?");
+            editor?.putString("ipServeur", "ns328061.ip-37-187-112.eu");
             editor?.commit()
-            ip="Ip ?"
+            ip="ns328061.ip-37-187-112.eu"
             Log.e("IP=",ip)
         }
+
+        mSensorViewModel!!.deleteAll()
+        mSensorTypesViewModel!!.deleteAll()
+        mStationViewModel!!.deleteAll()
+        val service = ApiHelper.create(ip)
+
         button.setOnClickListener {
             var newip = element.text
             editor?.putString("ipServeur", newip.toString());
@@ -90,7 +100,7 @@ class StartFragment : Fragment() {
             mStationViewModel!!.deleteAll()
             val pref = context?.getSharedPreferences("MyPref", 0)
             var ip = pref?.getString("ipServeur", null).toString()
-            val service = fr.JardinBruyere.gauche.ApiHelper.create(ip)
+            val service = ApiHelper.create(ip)
             service.getSensor().enqueue(object : retrofit2.Callback<Any> {
                 override fun onFailure(call: Call<Any>?, t: Throwable?) {
                     if (t != null) {
@@ -217,22 +227,22 @@ class StartFragment : Fragment() {
                         Snackbar.make(it1, "Les données des capteurs, stations et types ont correctment été chargées", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show()
                     }
+                    tableText.text="Telechargé"
                 }
             })
         }
+
         refreshReading.setOnClickListener{
 
             mSensorReadingViewModel!!.deleteAll()
             val pref = context?.getSharedPreferences("MyPref", 0)
             var ip = pref?.getString("ipServeur", null).toString()
-            val service = fr.JardinBruyere.gauche.ApiHelper.create(ip)
+            val service = ApiHelper.create(ip)
 
             val listing2: LiveData<List<Sensor>> = mSensorViewModel!!.allWords
             listing2.observe(viewLifecycleOwner,
                 { list: List<Sensor> ->
                     for (now in list) {
-
-
 
                 Log.e("Call for", now.toString())
                         now.Id?.let { it1 ->
@@ -279,6 +289,7 @@ class StartFragment : Fragment() {
                                         Snackbar.make(it1, "Les relevés des capteurs disponibles ont correctement été chargés", Snackbar.LENGTH_LONG)
                                             .setAction("Action", null).show()
                                     }
+                                    relevesText.text="Telechargé"
                                 }
                             })
                         }

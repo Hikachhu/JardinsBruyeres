@@ -7,7 +7,6 @@ import kotlin.jvm.Volatile
 import kotlinx.coroutines.CoroutineScope
 import androidx.room.Room
 import androidx.sqlite.db.SupportSQLiteDatabase
-import fr.JardinBruyere.gauche.database.*
 import fr.JardinBruyere.gauche.database.sensor.Sensor
 import fr.JardinBruyere.gauche.database.sensor.SensorDao
 import fr.JardinBruyere.gauche.database.sensorReading.SensorReading

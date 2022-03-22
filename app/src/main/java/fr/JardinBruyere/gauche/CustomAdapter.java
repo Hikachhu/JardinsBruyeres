@@ -9,13 +9,9 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import fr.JardinBruyere.gauche.R;
-
 import fr.JardinBruyere.gauche.database.sensor.Sensor;
 
 import java.util.ArrayList;
-
-import fr.JardinBruyere.gauche.database.sensor.Sensor;
 
 /**
  * Created by hardik on 9/1/17.
